@@ -6,24 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 
 
 @Entity
-@Table
 public class Pokemon {
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String pokemonName, hp, setName, version;
+	private String pokemonName, hp, setName;
 	
 	@ManyToOne
 	@JoinColumn(name = "typeid")
 	private Type type;
-	
-	
+
 	public Type getType() {
 		return type;
 	}
@@ -31,16 +29,30 @@ public class Pokemon {
 	public void setType(Type type) {
 		this.type = type;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "versionId")
+	private Version version;
+
+
+	public Version getVersion() {
+		return version;
+	}
+
+	public void setVersion(Version version) {
+		this.version = version;
+	}
 
 	public Pokemon() {}
 	
-	public Pokemon(String pokemonName, String hp, String setName, String version) {
+	public Pokemon(String pokemonName, String hp, String setName) {
 		super();
 		this.pokemonName = pokemonName;
 		this.hp = hp;
 		this.setName = setName;
-		this.version = version;
 	}
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -72,12 +84,12 @@ public class Pokemon {
 		this.setName = setName;
 	}
 
-	public String getVersion() {
-		return version;
+	@Override
+	public String toString() {
+		return "Pokemon [id=" + id + ", pokemonName=" + pokemonName + ", hp=" + hp + ", setName=" + setName + ", type="
+				+ type + ", version=" + version + "]";
 	}
 
-	public void setVersion(String version) {
-		this.version = version;
-	}
 	
+
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+public interface VersionRepository extends CrudRepository<Version, Long> {
+	List<Type> findByVersionName(String versionName);
 
-public interface TypeRepository extends CrudRepository<Type, Long> {
-	List<Type> findByTypeName(String typeName);
 }

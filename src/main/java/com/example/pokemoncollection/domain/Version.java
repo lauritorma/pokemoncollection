@@ -12,46 +12,39 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Type {
-	
+public class Version {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long typeid;
-	private String typeName;
-	
+	private Long versionId;
+	private String versionName;
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "version")
 	private List<Pokemon> pokemons;
 	
-	public Type() {}
-	
-	
-	public Long getTypeid() {
-		return typeid;
+	public Version() {}
+
+	public Long getVersionId() {
+		return versionId;
 	}
 
-
-	public void setTypeid(Long typeid) {
-		this.typeid = typeid;
+	public void setVersionId(Long versionId) {
+		this.versionId = versionId;
 	}
 	
-	public Type(String typeName) {
+	public Version(String versionName) {
 		super();
-		this.typeName = typeName;
+		this.versionName = versionName;
 	}
 
-	
-
-	public String getTypeName() {
-		return typeName;
+	public String getVersionName() {
+		return versionName;
 	}
 
-
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
+	public void setVersionName(String versionName) {
+		this.versionName = versionName;
 	}
-
 
 	public List<Pokemon> getPokemons() {
 		return pokemons;
@@ -61,5 +54,5 @@ public class Type {
 		this.pokemons = pokemons;
 	}
 
-
+	
 }

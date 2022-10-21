@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:if="${param.error}">Invalid username and password.</div>
+
+	<h1 style="text-align: center;">Login</h1>
+	<div class="table table-striped">
+		<form style="text-align:center;" th:action="@{/login}" method="post">
+			<div >Username:</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label> <input type="text" name="username" />
+			</label>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<div>Password:</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label><input type="password" name="password" />
+			</label>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+				<input class="btn btn-success" type="submit" value="Sign In" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<div><a th:href="@{/signup}" >Sign up</a></div>
+				
+				
+			
+		</form>
+		
+	</div>
+	
+
+</body>
+</html>
