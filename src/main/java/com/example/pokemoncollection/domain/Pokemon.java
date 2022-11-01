@@ -42,6 +42,18 @@ public class Pokemon {
 	public void setVersion(Version version) {
 		this.version = version;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "userid")
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Pokemon() {}
 	
