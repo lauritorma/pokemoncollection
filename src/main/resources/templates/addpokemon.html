@@ -2,37 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
 <title>Add new Pokémon</title>
 </head>
 <body>
+	<h1 style="text-align: center;">Add new Pokémon</h1>
+	<form th:object="${pokemon}" th:action="@{save}" action="#"
+		method="post">
+		<table style="width: 20%; margin: auto;"
+			class="table table-striped table-dark table-bordered">
 
-	<h1>Add Pokémon</h1>
-	<div>
-		<form th:object="${pokemon}" th:action="@{save}" action="#" method="post">
-			<label for="pokemonName">Name</label>
-			 <input type="text" th:field="*{pokemonName}" /> 
-			 <label for="typelist">Type</label>
-			 <select style="width: 200px;" id="typelist" 
-			 		 th:field="*{type}" class="form-control">
-			 <option th:each="type: ${types}"
-					 th:value="${type.typeid}"
-					 th:text="${type.typeName}"></option>
-			</select>
-			 <label for="hp">HP</label> 
-			 <input type="text" th:field="*{hp}" /> 
-			 <label for="setName">Set</label> 
-			 <input type="text" th:field="*{setName}" />
-			 <label for="versionlist">Version</label> 
-			 <select style="width: 200px;" id="versionlist"
-			 		 th:field="*{version}" class="form-control">
-			 <option th:each="version: ${versions}"
-					 th:value="${version.versionId}"
-					 th:text="${version.versionName}"></option>
-			</select>
-			 <input type="submit" value="Save"></input>
-		</form>
-	</div>
 
+			<tr style="text-align: center;">
+				<th><label for="pokemonName">Name</label></th>
+				<td><input type="text" th:field="*{pokemonName}" /></td>
+			<tr style="text-align: center;">
+				<th><label for="typelist">Type</label></th>
+				<td><select style="width: 200px; margin: auto;" id="typelist"
+					th:field="*{type}" class="form-control">
+						<option th:each="type: ${types}" th:value="${type.typeid}"
+							th:text="${type.typeName}"></option>
+				</select></td>
+			</tr>
+			<tr style="text-align: center;">
+				<th><label for="hp">HP</label></th>
+				<td><input type="text" th:field="*{hp}" /></td>
+			</tr>
+			<tr style="text-align: center;">
+				<th><label for="setName">Set</label></th>
+				<td><input type="text" th:field="*{setName}" /></td>
+			</tr>
+			<tr style="text-align: center;">
+				<th><label for="versionlist">Version</label></th>
+				<td><select style="width: 200px; margin: auto;"
+					id="versionlist" th:field="*{version}" class="form-control">
+						<option th:each="version: ${versions}"
+							th:value="${version.versionId}" th:text="${version.versionName}"></option>
+				</select></td>
+			</tr>
+			<tr style="text-align: center;">
+				<th><input class="btn btn-primary" type="submit" value="Save"></input></th>
+
+			</tr>
+
+
+
+		</table>
+	</form>
 </body>
 </html>

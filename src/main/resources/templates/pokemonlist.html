@@ -9,39 +9,36 @@
 	<table class="table table-striped table-dark">
 	<thead class="thead-light">
 	
-	<tr>
+	<tr style="text-align:center;">
 		<th>Pokemon</th>
 		<th>Type</th>
 		<th>HP</th>
 		<th>Set</th>
 		<th>Version</th>
 		<th></th>
-		<th></th>
-		<th></th>
+		<th><a class="btn btn-primary" href="/add">Add Pokémon</a> </th>
+		<th><form  th:action="@{/logout}" method="post">
+		<input class="btn btn-danger" type="submit" value="Sign Out" /></form>
+		</th>
+		
 	
 	</tr>
 	</thead>
 	<tbody>
 	
-	<tr th:each = "pokemon : ${pokemons}">
+	<tr style="text-align:center;" th:each = "pokemon : ${pokemons}">
 		<td th:text="${pokemon.pokemonName}"></td>
 		<td th:text="${pokemon.type.typeName}"></td>
 		<td th:text="${pokemon.hp}"></td>
 		<td th:text="${pokemon.setName}"></td>
 		<td th:text="${pokemon.version.versionName}"></td>
-		<td><a th:href="@{https://www.pokemon.com/us/pokedex/{number}(number=${pokemon.pokemonName})}" target="blank">Pokédex</a></td>
-		<td><a th:href="@{/delete/{id}(id=${pokemon.id})}">Delete</a></td>
-		<td><a th:href="@{/edit/{id}(id=${pokemon.id})}">Edit</a></td> 
+		<td><a  class="btn btn-info" th:href="@{https://www.pokemon.com/us/pokedex/{number}(number=${pokemon.pokemonName})}" target="blank">Pokédex</a></td>
+		<td><a  class="btn btn-danger" th:href="@{/delete/{id}(id=${pokemon.id})}">Delete</a></td>
+		<td><a  class="btn btn-warning" th:href="@{/edit/{id}(id=${pokemon.id})}">Edit</a></td> 
 		
 	</tr>
 	</tbody>
 	
 	</table>
-	<a href="/add">Add Pokémon</a> 
-	<div class="col-md-4" style="padding:20px 0">
-	<form  th:action="@{/logout}" method="post">
-		<input class="btn btn-sm btn-danger" type="submit" value="Sign Out" />
-	</form>
-	</div>
 </body>
 </html>
