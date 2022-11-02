@@ -10,11 +10,11 @@
 </style>
 <title>Login</title>
 </head>
-<body style="font-family: 'Roboto', sans-serif;">
+<body style="font-family: 'Roboto', sans-serif; background-color:#2e3330;">
 	<div style="color:red;" th:if="${param.error}">Invalid username and password.</div>
-	<h1 style="text-align:center; ">Welcome to your Pokémon-card collection!</h1>
-	
-	<div style="border:1px solid black; padding:10px; margin:auto; width:20%;">
+	<h1 style="text-align:center; color:white; ">Welcome to your Pokémon-card collection!</h1>
+	<div style="clear: both; display: block; height: 225px;"></div>
+	<div style="background-color:white; border:1px solid black; padding:10px; margin:auto; width:20%;">
 	<h2 style="text-align: center;">Login</h2>
 	
 	
@@ -38,8 +38,8 @@
 			
 		</form>
 		
-		<div style="text-align:center; margin:auto;">
-		<a th:href="@{/signup}" >Sign up</a>
+		<div style="border:1px solid black; width:15%; text-align:center; margin:10px; ">
+		<a style=" color:black; text-decoration:none;" th:href="@{/signup}" >Sign up</a>
 		</div>		
 	</div>
 	
