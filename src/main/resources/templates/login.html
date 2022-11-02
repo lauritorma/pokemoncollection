@@ -3,36 +3,44 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
-<title>Insert title here</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+</style>
+<title>Login</title>
 </head>
-<body>
-	<div th:if="${param.error}">Invalid username and password.</div>
-
-	<h1 style="text-align: center;">Login</h1>
-	<div class="table table-striped">
+<body style="font-family: 'Roboto', sans-serif;">
+	<div style="color:red;" th:if="${param.error}">Invalid username and password.</div>
+	<h1 style="text-align:center; ">Welcome to your Pokémon-card collection!</h1>
+	
+	<div style="border:1px solid black; padding:10px; margin:auto; width:20%;">
+	<h2 style="text-align: center;">Login</h2>
+	
+	
+	
 		<form style="text-align:center;" th:action="@{/login}" method="post">
-			<div >Username:</div>
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<label> <input type="text" name="username" />
-			</label>
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<div>Password:</div>
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<label><input type="password" name="password" />
-			</label>
-			<div style="clear: both; display: block; height: 10px;"></div>
 			
-				<input class="btn btn-success" type="submit" value="Sign In" />
-				<div style="clear: both; display: block; height: 10px;"></div>
-				
-				
+			
+			<label> <input type="text" placeholder="Username" name="username" />
+			</label>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label><input type="password" placeholder="Password" name="password" />
+			</label>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<!-- <div class="form-check">
+    		<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    		<label class="form-check-label" for="exampleCheck1">Check me out</label>
+  			</div> -->
+			<button type="submit" class="btn btn-primary" >Sign in</button>
+			<div style="clear: both; display: block; height: 10px;"></div>
 				
 			
 		</form>
-		<a th:href="@{/signup}" >Sign up</a>
 		
+		<div style="text-align:center; margin:auto;">
+		<a th:href="@{/signup}" >Sign up</a>
+		</div>		
 	</div>
 	
 

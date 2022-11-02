@@ -6,17 +6,22 @@
 <title>Pokémon collection!</title>
 </head>
 <body>
-	<table>
-	<tbody>
+	<table class="table table-striped table-dark">
+	<thead class="thead-light">
+	
 	<tr>
 		<th>Pokemon</th>
 		<th>Type</th>
 		<th>HP</th>
 		<th>Set</th>
 		<th>Version</th>
-		
+		<th></th>
+		<th></th>
+		<th></th>
 	
 	</tr>
+	</thead>
+	<tbody>
 	
 	<tr th:each = "pokemon : ${pokemons}">
 		<td th:text="${pokemon.pokemonName}"></td>
