@@ -5,10 +5,8 @@
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
 <title>Pokémon collection!</title>
 </head>
-<body class="bg-dark ">
-	<h1>Your personal Pokémon-card collection!</h1>
-	<h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
-	<table class="table table-striped table-dark">
+<body>
+	<table>
 	<tbody>
 	<tr>
 		<th>Pokemon</th>
@@ -16,9 +14,6 @@
 		<th>HP</th>
 		<th>Set</th>
 		<th>Version</th>
-		<th></th>
-		<th></th>
-		<th></th>
 		
 	
 	</tr>
@@ -26,21 +21,21 @@
 	<tr th:each = "pokemon : ${pokemons}">
 		<td th:text="${pokemon.pokemonName}"></td>
 		<td th:text="${pokemon.type.typeName}"></td>
-		<td style="font-weight: 900;color:red;" th:text="${pokemon.hp}"></td>
+		<td th:text="${pokemon.hp}"></td>
 		<td th:text="${pokemon.setName}"></td>
 		<td th:text="${pokemon.version.versionName}"></td>
-		<td><a class="btn btn-info" th:href="@{https://www.pokemon.com/us/pokedex/{number}(number=${pokemon.pokemonName})}" target="blank">Pokédex</a></td>
-		<td ><a class="btn btn-danger" th:href="@{/delete/{id}(id=${pokemon.id})}">Delete</a></td>
-		<td><a class="btn btn-warning" th:href="@{/edit/{id}(id=${pokemon.id})}">Edit</a></td> 
+		<td><a th:href="@{https://www.pokemon.com/us/pokedex/{number}(number=${pokemon.pokemonName})}" target="blank">Pokédex</a></td>
+		<td><a th:href="@{/delete/{id}(id=${pokemon.id})}">Delete</a></td>
+		<td><a th:href="@{/edit/{id}(id=${pokemon.id})}">Edit</a></td> 
 		
 	</tr>
 	</tbody>
 	
 	</table>
-	<a  class="btn btn-primary" href="/add">Add Pokémon</a> 
+	<a href="/add">Add Pokémon</a> 
 	<div class="col-md-4" style="padding:20px 0">
 	<form  th:action="@{/logout}" method="post">
-		<input class="btn btn-danger" type="submit" value="Sign Out" />
+		<input class="btn btn-sm btn-danger" type="submit" value="Sign Out" />
 	</form>
 	</div>
 </body>
