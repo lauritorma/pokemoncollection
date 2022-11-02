@@ -5,7 +5,7 @@
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
 <title>Pokémon collection!</title>
 </head>
-<body>
+<body style=" background-color:#181b19">
 	<table class="table table-striped table-dark">
 	<thead class="thead-light">
 	
@@ -15,7 +15,7 @@
 		<th>HP</th>
 		<th>Set</th>
 		<th>Version</th>
-		<th></th>
+		<th>Info</th>
 		<th><a class="btn btn-primary" href="/add">Add Pokémon</a> </th>
 		<th><form  th:action="@{/logout}" method="post">
 		<input class="btn btn-danger" type="submit" value="Sign Out" /></form>

@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
-	th:href="@{/css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 <title>Add new Pokémon</title>
 </head>
-<body>
-	<h1 style="text-align: center;">Add new Pokémon</h1>
+<body style=" background-color:#181b19">
+	<h1 style="text-align: center; color:white;">Add new Pokémon</h1>
+	<div style="clear: both; display: block; height: 10px;"></div>
 	<form th:object="${pokemon}" th:action="@{save}" action="#"
 		method="post">
 		<table style="width: 20%; margin: auto;"
