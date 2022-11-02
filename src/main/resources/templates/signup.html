@@ -12,36 +12,19 @@
 	<div style=" width:30%; margin:auto; padding:20px; justify-content:center;">
      <div class="col-md-4">
 		<form style="text-align:center;" th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
-			<div  class="input-group mb-3">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			<input  type="text" class="form-control"  th:field="*{username}" placeholder="Username" id="username" aria-describedby="basic-addon1">
-			<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
-			</div>
-			<!-- <div>
+			<div>
 				<label> Username :<input type="text" th:field="*{username}" class="form-control"/></label>
 				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
-			</div> -->
-			<div  class="mb-3">
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<span class="input-group-text" id="basic-addon1">*</span>
-   			<input type="password" class="form-control"  th:field="*{password}" placeholder="Password" id="password">
-			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
 			</div>
-			<!-- <div>
+			<div>
 				<label> Password :<input type="password" th:field="*{password}" class="form-control"/></label>
 				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
-			</div> -->
-			<div   class="mb-3">
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<span class="input-group-text" id="basic-addon1">*</span>
-   			<input type="password" class="form-control"  th:field="*{passwordCheck}" placeholder="Re-type Password" id="password">
-			<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
 			</div>
-			<!-- <div>
+			<div>
 				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
 				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
 			</div>
-			 -->
+			
 			<input type="submit" class="btn btn-primary" value="Signup"></input>		
 		</form>
 	</div>
