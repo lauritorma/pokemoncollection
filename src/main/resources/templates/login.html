@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> 
+<title>Login</title>
 </head>
 <body>
 	<div th:if="${param.error}">Invalid username and password.</div>
 
-	<h1 style="text-align: center;">Login</h1>
-	<div class="table table-striped">
+	<h1 style="text-align: center; font-family:Impact, fantasy;">Welcome to Pokémon-card database!</h1>
+	<div style="clear: both; display: block; height: 10px;"></div>
+	<div style="background-color:black; width:30%; margin:auto; padding:20px; justify-content:center;">
+	<h2 style="text-align: center; font-family:Impact, fantasy; color:white;">LOGIN</h2>
 		<form style="text-align:center;" th:action="@{/login}" method="post">
-			<div >Username:</div>
+		 
+		 <div style="color:white;" class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">@</span>
+			<input  type="text" class="form-control" placeholder="Username" id="username" aria-describedby="basic-addon1">
+			</div>
+		
+		<div  style="color:white;" class="mb-3">
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label> <input type="text" name="username" />
-			</label>
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<div>Password:</div>
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<label><input type="password" name="password" />
-			</label>
+			<span class="input-group-text" id="basic-addon1">*</span>
+   			<input type="text" class="form-control" placeholder="Password" id="password">
+			</div>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
-				<input class="btn btn-success" type="submit" value="Sign In" />
+				<input class="btn btn-primary" type="submit" value="Sign In" />
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 				
 				
 			
 		</form>
+		<div class="btn btn-primary stretched-link" style="text-align: center; width:20%; margin:auto; background-color:white;">
 		<a th:href="@{/signup}" >Sign up</a>
+		</div>
 		
 	</div>
 	
