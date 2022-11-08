@@ -3,10 +3,14 @@ package com.example.pokemoncollection.web;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +56,41 @@ public class PokemonController {
     public @ResponseBody Optional<Pokemon> findPokemonRest(@PathVariable("id") Long pokemonId) {
         return repository.findById(pokemonId);
     }
+    
+    //Show list of all cards with same Pokémon
+    @GetMapping( { "/cardsByPokemonName/{pokemonName}" })
+    public String cardListByPokemonName(@PathVariable("pokemonName") String pokemonName, Model model) {
+        model.addAttribute("pokemons", repository.findByPokemonName(pokemonName));
+        return "pokemonlist";
+    }
+    
+    //Show list of all cards with same type
+//    @GetMapping({"/cardsByType/{type}"})
+//    public String cardListByType(@PathVariable("type") String type, Model model) {
+//    	model.addAttribute("types", repository.findByType(type));
+//    	return "pokemonlist";
+//    }
+    
+    //Show list of all cards with same hp
+    @GetMapping({"/cardsByHp/{hp}"})
+    public String cardListByHp(@PathVariable("hp") String hp, Model model) {
+    	model.addAttribute("pokemons", repository.findByHp(hp));
+    	return "pokemonlist";
+    }
+    
+    //Show list of all cards from same set
+    @GetMapping({"/cardsBySetName/{setName}"})
+    public String cardListBySetName(@PathVariable("setName") String setName, Model model) {
+    	model.addAttribute("setNames", repository.findBySetName(setName));
+    	return "pokemonlist";
+    }
+    
+    //Show list of all cards with same version
+//    @GetMapping({"/cardsByVersion/{version}"})
+//    public String cardListByVersion(@PathVariable("version") String version, Model model) {
+//    	model.addAttribute("versions", repository.findByVersion(version));
+//    	return "pokemonlist";
+//    }
 
     // Add new Pokemon to list
 
@@ -66,7 +105,7 @@ public class PokemonController {
     // Save new Pokemon
 
     @PostMapping("/save")
-    public String save(Pokemon pokemon) {
+    public String save(@ModelAttribute("pokemon") @Valid Pokemon pokemon, BindingResult bindingResult) {
         repository.save(pokemon);
         return "redirect:pokemoncollection";
     }

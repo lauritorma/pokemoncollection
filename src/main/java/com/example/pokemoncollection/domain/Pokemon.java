@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 
 
@@ -16,7 +17,13 @@ public class Pokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String pokemonName, hp, setName;
+	
+	@NotBlank(message = "Cannot be blank")
+	private String pokemonName;
+	@NotBlank(message = "Cannot be blank")
+	private String hp;
+	@NotBlank(message = "Cannot be blank")
+	private String setName;
 	
 	@ManyToOne
 	@JoinColumn(name = "typeid")
