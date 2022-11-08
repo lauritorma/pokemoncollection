@@ -6,8 +6,8 @@
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 <title>Add new Pokémon</title>
 </head>
-<body style=" background-color:#181b19">
-	<h1 style="text-align: center; color:white;">Add new Pokémon</h1>
+<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: repeat, repeat; background-size: cover;'">
+	<h1 style="text-align: center; margin-top:100px; color:white;">Add new Pokémon</h1>
 	<div style="clear: both; display: block; height: 10px;"></div>
 	<form th:object="${pokemon}" th:action="@{save}" action="#"
 		method="post">
