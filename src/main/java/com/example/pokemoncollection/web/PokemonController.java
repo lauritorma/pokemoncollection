@@ -3,6 +3,7 @@ package com.example.pokemoncollection.web;
 import java.util.List;
 import java.util.Optional;
 
+import javax.swing.JOptionPane;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,8 +106,13 @@ public class PokemonController {
     // Save new Pokemon
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("pokemon") @Valid Pokemon pokemon, BindingResult bindingResult) {
-        repository.save(pokemon);
+    public String save(@ModelAttribute("pokemon") @Valid Pokemon pokemon, BindingResult bindingResult, Model model) {
+        if(bindingResult.hasErrors()) {
+          model.addAttribute("types", trepository.findAll());
+          model.addAttribute("versions", vrepository.findAll());
+          return "addpokemon";
+        }
+    	repository.save(pokemon);
         return "redirect:pokemoncollection";
     }
 

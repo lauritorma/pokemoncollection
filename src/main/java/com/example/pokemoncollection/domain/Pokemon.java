@@ -19,11 +19,7 @@ public class Pokemon {
 	private Long id;
 	
 	@NotBlank(message = "Cannot be blank")
-	private String pokemonName;
-	@NotBlank(message = "Cannot be blank")
-	private String hp;
-	@NotBlank(message = "Cannot be blank")
-	private String setName;
+	private String pokemonName, hp, setName;
 	
 	@ManyToOne
 	@JoinColumn(name = "typeid")

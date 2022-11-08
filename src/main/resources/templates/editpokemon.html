@@ -11,12 +11,13 @@
 	<div style="clear: both; display: block; height: 10px;"></div>
 	<form th:object="${pokemon}" th:action="@{../save}" action="#" method="post">
 		<table style="width: 20%; margin: auto;"
-			class="table table-striped table-dark table-bordered">
+			class="table table-striped table-dark ">
 
 
 			<tr style="text-align: center;">
 				<th><label for="pokemonName">Name</label></th>
 				<td><input type="text" th:field="*{pokemonName}" /></td>
+					<td style="font-size:80%; color:red;" th:if="${#fields.hasErrors('pokemonName')}" th:errors="*{pokemonName}"></td>
 			<tr style="text-align: center;">
 				<th><label for="typelist">Type</label></th>
 				<td><select style="width: 200px; margin: auto;" id="typelist"
@@ -28,10 +29,12 @@
 			<tr style="text-align: center;">
 				<th><label for="hp">HP</label></th>
 				<td><input type="text" th:field="*{hp}" /></td>
+				<td style="font-size:80%; color:red;" th:if="${#fields.hasErrors('hp')}" th:errors="*{hp}"></td>
 			</tr>
 			<tr style="text-align: center;">
 				<th><label for="setName">Set</label></th>
 				<td><input type="text" th:field="*{setName}" /></td>
+				<td style="font-size:80%; color:red;" th:if="${#fields.hasErrors('setName')}" th:errors="*{setName}"></td>
 			</tr>
 			<tr style="text-align: center;">
 				<th><label for="versionlist">Version</label></th>
