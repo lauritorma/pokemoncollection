@@ -24,7 +24,9 @@
 				<label><input type="password" placeholder="Re-type Password" th:field="*{passwordCheck}" class="form-control"/></label>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
-			
+				<div class="form-check">
+    			<label><input type="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1"/>I'm admin</label>
+  				</div>
 				<input type="submit" class="btn btn-primary" value="Signup"></input>		
 		</form>
 	</div>

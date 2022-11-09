@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.pokemoncollection.domain.SignupForm;
 import com.example.pokemoncollection.domain.User;
@@ -28,7 +29,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/saveuser")
-    public String save(@Valid @ModelAttribute("signupform") SignupForm signupForm, BindingResult bindingResult) {
+    public String save(@Valid @ModelAttribute("signupform") SignupForm signupForm, BindingResult bindingResult, @RequestParam(defaultValue = "false") boolean checkbox) {
     	if (!bindingResult.hasErrors()) { // validation errors
     		if (signupForm.getPassword().equals(signupForm.getPasswordCheck())) { // check password match		
 	    		String pwd = signupForm.getPassword();
@@ -38,7 +39,13 @@ public class UserController {
 		    	User newUser = new User();
 		    	newUser.setPasswordHash(hashPwd);
 		    	newUser.setUsername(signupForm.getUsername());
-		    	newUser.setRole("USER");
+		    	if(checkbox) {
+		    		newUser.setRole("ADMIN");
+		    	}
+		    	else {
+		    		newUser.setRole("USER");
+		    	}
+		    	
 		    	if (repository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
 		    		repository.save(newUser);
 		    	}
