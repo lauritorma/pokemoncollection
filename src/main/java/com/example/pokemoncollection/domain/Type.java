@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Type {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long typeid;

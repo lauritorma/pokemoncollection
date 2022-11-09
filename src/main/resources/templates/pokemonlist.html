@@ -63,12 +63,10 @@ font-size:120%;
 	
 	<tr style="text-align:center;" th:each = "pokemon : ${pokemons}">
 		<td style="color:white; font-size:110%;"><b><a th:href="@{/cardsByPokemonName/{pokemonName}(pokemonName=${pokemon.pokemonName})}" th:text="${pokemon.pokemonName}"></a></b></td>
-		<td th:text="${pokemon.type.typeName}"></td>
-		<!-- <td><a th:href="@{/cardsByType/{typeName}(typeName=${pokemon.type.typeName})}" th:text="${pokemon.type.typeName}"></a></td> -->
+		<td><a th:href="@{/cardsByType/{typeName}(typeName=${pokemon.type.typeName})}" th:text="${pokemon.type.typeName}"></a></td>
 		<td><b><a th:href="@{/cardsByHp/{hp}(hp=${pokemon.hp})}" th:text="${pokemon.hp}"></a></b></td>
 		<td><a th:href="@{/cardsBySetName/{setName}(setName=${pokemon.setName})}" th:text="${pokemon.setName}"></a></td>
-		<td th:text="${pokemon.version.versionName}"></td>
-		<!-- <td><a th:href="@{/cardsByVersion/{versionName}(versionName=${pokemon.version.versionName})}" th:text="${pokemon.version.versionName}"></a></td> -->
+	    <td><a th:href="@{/cardsByVersion/{versionName}(versionName=${pokemon.version.versionName})}" th:text="${pokemon.version.versionName}"></a></td>
 		<!-- <td th:text="${pokemon.type.typeName}"></td>
 		<td th:text="${pokemon.hp}"></td>
 		<td th:text="${pokemon.setName}"></td>
