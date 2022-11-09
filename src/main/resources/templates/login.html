@@ -15,9 +15,8 @@ font-family: 'Roboto', sans-serif;
 </style>
 <title>Login</title>
 </head>
-<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: no-repeat; background-size:100% 100%; background-attachment: fixed; background-position:center center; '">
-	<div style="color:red;" th:if="${param.error}">Invalid username and password.</div>
-	<h1 style="text-align:center; color:black; margin-top:100px; width:100%; "><b>Welcome to your Pokémon-card collection!</b></h1>
+<body th:style="'background-image:url(' + @{/images/background.jpg} + '); background-repeat: no-repeat; background-size:100% 100%; background-attachment: fixed; background-position:center center; '">
+	<h1 style="text-align:center; color:black; margin:50px 0px 50px; width:100%; "><b>Welcome to your Pokémon-card collection!</b></h1>
 
 	<div style=" padding:10px; margin:auto; width:100%; display:inline-block; ">
 	<h2 style="text-align: center; width:100%; margin-bottom:20px;">Login</h2>
@@ -27,12 +26,13 @@ font-family: 'Roboto', sans-serif;
 		<form style="text-align:center;" th:action="@{/login}" method="post">
 			
 			
-			<label> <input style="width:100%;" type="text" placeholder="Username" name="username" />
+			<label style=" display: block; width: 100%;"> <input  type="text" placeholder="Username" name="username" />
 			</label>
 			<div style="clear: both; display: block; width: 100%;"></div>
-			<label><input style="width:100%;" type="password" placeholder="Password" name="password" />
+			<label style=" display: block; width: 100%;"><input type="password" placeholder="Password" name="password" />
 			</label>
-			<div style="clear: both; display: block; height: 100%;"></div>
+			<div style="clear: both; display: block; width: 100%;"></div>
+			<div style="color:red;" th:if="${param.error}">Invalid username or password.</div>
 			<button style="max-width:100%; margin-top:10px;" type="submit" class="btn btn-primary" >Sign in</button>
 			<div style="clear: both; display: block; height: 100%;"></div>
 				
@@ -40,7 +40,7 @@ font-family: 'Roboto', sans-serif;
 		</form>
 		
 		<div style="text-align:center; width:100%; margin-top:20px;">
-		<a class="btn btn-sm btn-info" th:href="@{/signup}" >Sign up</a>
+		<a class="btn btn-sm btn-info" th:href="@{/signup}" >New user? Sign up</a>
 		</div>		
 	</div>
 	

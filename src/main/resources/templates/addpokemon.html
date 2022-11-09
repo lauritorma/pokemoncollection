@@ -7,8 +7,8 @@
 <link rel="icon" href="/images/favicon.ico.png" type="image/png" />
 <title>Add new Pokémon</title>
 </head>
-<body th:style="'background-image:url(' + @{/images/background-small.jpg} + ');background-repeat: no-repeat; background-size:100% 100%; background-attachment: fixed; background-position:center center;'">
-	<h1 style="text-align: center; margin-top:100px; width:100%; color:white;">Add new Pokémon</h1>
+<body th:style="'background-image:url(' + @{/images/background.jpg} + ');background-repeat: no-repeat; background-size:100% 100%; background-attachment: fixed; background-position:center center;'">
+	<h1 style="text-align: center; margin-top:100px; width:100%; color:black;">Add new Pokémon</h1>
 	<div style="clear: both; display: block; height: 10px;"></div>
 	<form th:object="${pokemon}" th:action="@{save}" action="#"
 		method="post">

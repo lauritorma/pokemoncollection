@@ -11,4 +11,5 @@ public interface PokemonRepository extends CrudRepository <Pokemon, Long> {
 	List<Pokemon> findByHp(@Param("hp") String hp);
 	List<Pokemon> findBySetName(@Param("setName") String setName);
 	List<Pokemon> findByVersion(@Param("version") String version);
+	
 }
