@@ -2,32 +2,37 @@
 <html  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0 ">
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+<link rel="icon" href="/images/favicon.ico.png" type="image/png" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+font-family: 'Roboto', sans-serif;
+}
 </style>
 <title>Sign up</title>
 </head>
-<body style="font-family: 'Roboto', sans-serif; background-color:#2e3330;">
+<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: repeat; background-size: 100%;  overflow: hidden;  '">
 	<div style="clear: both; display: block; height: 300px;"></div>
-     <div style=" background-color:white; border:1px solid black; padding:10px; margin:auto; width:20%;">
-		<h2 style="text-align:center; ">Sign-up</h2>
+     <div style=" padding:10px; margin:auto; width:100%;">
+		<h2 style="text-align:center; width:100%; height:100%; ">Sign-up</h2>
 		<form style="text-align:center;" th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
 			
 				<label><input type="text" placeholder="Username" th:field="*{username}" class="form-control"/></label>
-				<div style="clear: both; display: block; height: 10px;"></div>
+				<div style="clear: both; display: block; height: 100%;"></div>
 				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
 				<label><input type="password" placeholder="Password" th:field="*{password}" class="form-control"/></label>
-				<div style="clear: both; display: block; height: 10px;"></div>
+				<div style="clear: both; display: block; height: 100%;"></div>
 				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
 				<label><input type="password" placeholder="Re-type Password" th:field="*{passwordCheck}" class="form-control"/></label>
-				<div style="clear: both; display: block; height: 10px;"></div>
+				<div style="clear: both; display: block; height: 100%;"></div>
 				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
 				<div class="form-check">
     			<label><input type="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1"/>I'm admin</label>
   				</div>
-				<input type="submit" class="btn btn-primary" value="Signup"></input>		
+				<input style="max-width:100%;" type="submit" class="btn btn-primary" value="Signup"></input>		
 		</form>
 	</div>
 </body>

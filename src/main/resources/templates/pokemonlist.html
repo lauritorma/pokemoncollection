@@ -27,11 +27,11 @@ font-size:120%;
 	<thead class="thead-light">
 	<tr>
 	<th th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</th>
-	<th><a class="btn btn-sm btn-primary" href="/add">Add</a> </th>
-	<th sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-sm btn-danger" th:href="@{/deleteAll}">Delete all</a></th>
-	<th><a class="btn btn-sm  btn-info" href="/">Main page</a></th>
+	<th><a class="btn btn-primary" href="/add">Add</a> </th>
+	<th sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger" th:href="@{/deleteAll}">Delete all</a></th>
+	<th><a class="btn btn-info" href="/">Main page</a></th>
 	<th><form  th:action="@{/logout}" method="post">
-		<input class="btn btn-sm btn-danger" type="submit" value="Sign Out" /></form>
+		<input class="btn btn-danger" type="submit" value="Sign Out" /></form>
 		</th>
 	</tr>
 	</thead>
