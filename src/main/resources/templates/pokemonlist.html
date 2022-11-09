@@ -23,11 +23,11 @@ font-size:120%;
 <title>Pokémon collection!</title>
 </head>
 <body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: repeat; background-size: 100%;  overflow: hidden;  '">
-	<table  class="table table-striped table-dark">
+	<table style="width:100%;"  class="table table-striped table-dark">
 	<thead class="thead-light">
-	<tr>
+	<tr style="text-align:center; width:100%;">
 	<th th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</th>
-	<th><a class="btn btn-primary" href="/add">Add</a> </th>
+	<th ><a class="btn btn-primary" href="/add">Add</a> </th>
 	<th sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger" th:href="@{/deleteAll}">Delete all</a></th>
 	<th><a class="btn btn-info" href="/">Main page</a></th>
 	<th><form  th:action="@{/logout}" method="post">
@@ -36,10 +36,10 @@ font-size:120%;
 	</tr>
 	</thead>
 	</table>
-	<table class="table table-striped table-dark">
+	<table style="width:100%;" class="table table-striped table-dark">
 	<thead class="thead-dark">
 	
-	<tr style="text-align:center;">
+	<tr style="text-align:center; width:100%;">
 		<th>Pokemon</th>
 		<th>Type</th>
 		<th>HP</th>
