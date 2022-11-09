@@ -7,7 +7,7 @@
 <link rel="icon" href="/images/favicon.ico.png" type="image/png" />
 <title>Edit Pokémon</title>
 </head>
-<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: repeat, repeat; background-size: cover;'">
+<body th:style="'background-image:url(' + @{/images/background-small.jpg} + ');background-repeat: no-repeat; background-size:100% 100%; background-attachment: fixed; background-position:center center;'">
 	<h1 style="text-align: center; color:white;">Edit Pokémon</h1>
 	<div style="clear: both; display: block; height: 10px;"></div>
 	<form th:object="${pokemon}" th:action="@{../save}" action="#" method="post">

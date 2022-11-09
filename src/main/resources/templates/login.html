@@ -15,7 +15,7 @@ font-family: 'Roboto', sans-serif;
 </style>
 <title>Login</title>
 </head>
-<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: repeat; background-size: 100%;  overflow: hidden;  '">
+<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: no-repeat; background-size:100% 100%; background-attachment: fixed; background-position:center center; '">
 	<div style="color:red;" th:if="${param.error}">Invalid username and password.</div>
 	<h1 style="text-align:center; color:black; margin-top:100px; width:100%; "><b>Welcome to your Pokémon-card collection!</b></h1>
 
