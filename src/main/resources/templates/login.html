@@ -8,10 +8,13 @@
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+font-family: 'Roboto', sans-serif;
+}
 </style>
 <title>Login</title>
 </head>
-<body style="font-family: 'Roboto', sans-serif; background-color:#2e3330;">
+<body th:style="'background-image:url(' + @{/images/background-small.jpg} + '); background-repeat: repeat; background-size: 100%;  overflow: hidden;  '">
 	<div style="color:red;" th:if="${param.error}">Invalid username and password.</div>
 	<h1 style="text-align:center; color:white; ">Welcome to your Pokémon-card collection!</h1>
 	<div style="clear: both; display: block; height: 225px;"></div>
@@ -29,10 +32,6 @@
 			<label><input type="password" placeholder="Password" name="password" />
 			</label>
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<!-- <div class="form-check">
-    		<input type="checkbox" class="form-check-input" id="exampleCheck1">
-    		<label class="form-check-label" for="exampleCheck1">Check me out</label>
-  			</div> -->
 			<button type="submit" class="btn btn-primary" >Sign in</button>
 			<div style="clear: both; display: block; height: 10px;"></div>
 				

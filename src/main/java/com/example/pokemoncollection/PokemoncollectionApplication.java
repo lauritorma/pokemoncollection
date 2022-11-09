@@ -24,6 +24,7 @@ public class PokemoncollectionApplication {
 	@Bean
 	public CommandLineRunner demo(PokemonRepository repository,TypeRepository trepository,VersionRepository vrepository) {return (args) -> {
 		
+//		repository.save(new Pokemon("test","test","test"));
 		
 		log.info("Saving Pokemon types to in-memory");
 		trepository.save(new Type("Normal"));

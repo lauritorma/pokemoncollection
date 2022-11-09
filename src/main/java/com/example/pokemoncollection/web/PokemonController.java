@@ -3,7 +3,7 @@ package com.example.pokemoncollection.web;
 import java.util.List;
 import java.util.Optional;
 
-import javax.swing.JOptionPane;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,7 +93,7 @@ public class PokemonController {
 //    	return "pokemonlist";
 //    }
 
-    // Add new Pokemon to list
+    // Add new card to list
 
     @GetMapping("/add")
     public String addPokemon(Model model) {
@@ -103,7 +103,7 @@ public class PokemonController {
         return "addpokemon";
     }
 
-    // Save new Pokemon
+    // Save new card
 
     @PostMapping("/save")
     public String save(@ModelAttribute("pokemon") @Valid Pokemon pokemon, BindingResult bindingResult, Model model) {
@@ -116,7 +116,7 @@ public class PokemonController {
         return "redirect:pokemoncollection";
     }
 
-    // Edit Pokemon
+    // Edit card
     @GetMapping("/edit/{id}")
     public String editPokemon(@PathVariable("id") Long PokemonId, Model model) {
         model.addAttribute("pokemon", repository.findById(PokemonId));
@@ -125,10 +125,18 @@ public class PokemonController {
         return "editpokemon";
     }
 
-    // Delete Pokemon from list
+    // Delete card from list
     @GetMapping("/delete/{id}")
     public String deletePokemon(@PathVariable("id") Long PokemonId, Model model) {
         repository.deleteById(PokemonId);
         return "redirect:/pokemoncollection";
+    }
+    
+    //Delete all cards from list
+    
+    @GetMapping("/deleteAll")
+    public String deleteAll(Model model) {
+    	repository.deleteAll();
+    	return "pokemonlist";
     }
 }
