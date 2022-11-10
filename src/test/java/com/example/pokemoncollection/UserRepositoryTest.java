@@ -21,7 +21,7 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void findByUsernameShouldReturnUser() {
-		User user = repository.findByUsername("Testaaja");
+		User user = repository.findByUsername("Testaaja1");
 		assertThat(user.getRole()).isEqualTo("USER");
 	}
 	

@@ -56,10 +56,10 @@ public class PokemoncollectionApplication {
 		log.info("saving some demo pokemons to in-memory for testing");
 		repository.save(new Pokemon("Empoleon",trepository.findByTypeName("Ice").get(0),"130","Diamond",vrepository.findByVersionName("Holo").get(0)));
 		repository.save(new Pokemon("Pikachu",trepository.findByTypeName("Electric").get(0),"100","Diamond & Pearl",vrepository.findByVersionName("Normal").get(0)));
-
-		log.info("saving demo user for testing");
-		//testuser hashed password= salainensana
-		urepository.save(new User("Testaaja","$2a$12$XWpHs9mfAAV2mzprlK3qbetFmITaaE.kbnwGPrPSP8XRcdiK8.OSq","USER"));
+//
+//		log.info("saving demo user for testing");
+//		//testuser hashed password= salainensana
+//		urepository.save(new User("Testaaja1","$2a$12$XWpHs9mfAAV2mzprlK3qbetFmITaaE.kbnwGPrPSP8XRcdiK8.OSq","USER"));
 		
 	};
 	}
