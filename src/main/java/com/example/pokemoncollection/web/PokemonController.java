@@ -67,8 +67,8 @@ public class PokemonController {
     }
     
     //Show list of all cards with same type
-    @GetMapping({"/cardsByType/{typeid}"})
-    public String cardListByType(@PathVariable("typeid") String type, Model model) {
+    @GetMapping({"/cardsByType/{type}"})
+    public String cardListByType(@PathVariable("type") String type, Model model) {
     	model.addAttribute("types", repository.findByType(type));
     	return "pokemonlist";
     }
