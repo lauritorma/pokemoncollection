@@ -60,13 +60,11 @@ public class Pokemon {
 
 	public Pokemon() {}
 	
-	public Pokemon(String pokemonName, Type type, String hp, String setName, Version version) {
+	public Pokemon(String pokemonName, String hp, String setName) {
 		super();
 		this.pokemonName = pokemonName;
-		this.type = type;
 		this.hp = hp;
 		this.setName = setName;
-		this.version = version;
 	}
 	
 	
@@ -104,9 +102,8 @@ public class Pokemon {
 	@Override
 	public String toString() {
 		return "Pokemon [id=" + id + ", pokemonName=" + pokemonName + ", hp=" + hp + ", setName=" + setName + ", type="
-				+ this.getType() + ", version=" + this.getVersion() + "]";
+				+ type + ", version=" + version + "]";
 	}
-
 
 	
 
