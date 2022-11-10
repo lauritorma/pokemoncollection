@@ -68,6 +68,6 @@ public class Type {
 		return "Type [typeid=" + typeid + ", typeName=" + typeName + "]";
 	}
 	
-
-
+	
+	
 }
