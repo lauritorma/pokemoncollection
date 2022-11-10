@@ -63,4 +63,10 @@ public class Type {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Type [typeid=" + typeid + ", typeName=" + typeName + "]";
+	}
+
+
 }

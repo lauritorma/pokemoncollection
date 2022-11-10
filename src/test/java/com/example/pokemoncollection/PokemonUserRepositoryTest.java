@@ -14,7 +14,7 @@ import com.example.pokemoncollection.domain.UserRepository;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class UserRepositoryTest {
+public class PokemonUserRepositoryTest {
 
 	@Autowired
 	 private UserRepository repository;

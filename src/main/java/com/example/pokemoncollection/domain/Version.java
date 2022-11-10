@@ -54,5 +54,10 @@ public class Version {
 		this.pokemons = pokemons;
 	}
 
+	@Override
+	public String toString() {
+		return "Version [versionId=" + versionId + ", versionName=" + versionName + "]";
+	}
+
 	
 }
