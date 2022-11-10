@@ -12,6 +12,8 @@ import com.example.pokemoncollection.domain.Pokemon;
 import com.example.pokemoncollection.domain.PokemonRepository;
 import com.example.pokemoncollection.domain.Type;
 import com.example.pokemoncollection.domain.TypeRepository;
+import com.example.pokemoncollection.domain.User;
+import com.example.pokemoncollection.domain.UserRepository;
 import com.example.pokemoncollection.domain.Version;
 import com.example.pokemoncollection.domain.VersionRepository;
 
@@ -23,7 +25,7 @@ public class PokemoncollectionApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(PokemonRepository repository,TypeRepository trepository,VersionRepository vrepository) {return (args) -> {
+	public CommandLineRunner demo(PokemonRepository repository,TypeRepository trepository,VersionRepository vrepository, UserRepository urepository) {return (args) -> {
 		
 		
 		log.info("Saving Pokemon types to in-memory");
@@ -55,6 +57,9 @@ public class PokemoncollectionApplication {
 		repository.save(new Pokemon("Empoleon",trepository.findByTypeName("Ice").get(0),"130","Diamond",vrepository.findByVersionName("Holo").get(0)));
 		repository.save(new Pokemon("Pikachu",trepository.findByTypeName("Electric").get(0),"100","Diamond & Pearl",vrepository.findByVersionName("Normal").get(0)));
 
+		log.info("saving demo user for testing");
+		//testuser hashed password= salainensana
+		urepository.save(new User("Testaaja","$2a$12$XWpHs9mfAAV2mzprlK3qbetFmITaaE.kbnwGPrPSP8XRcdiK8.OSq","USER"));
 		
 	};
 	}
