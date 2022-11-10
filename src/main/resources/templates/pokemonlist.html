@@ -34,9 +34,9 @@ font-size:120%;
 	<th></th>
 	<th ><a class="btn btn-primary" href="/add">Add</a> </th>
 	<th sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger" th:href="@{/deleteAll}">Reset</a></th>
-	<th><a class="btn btn-info" href="/">Home</a></th>
+	<th><a class="btn btn-success" href="/">Home</a></th>
 	<th><form  th:action="@{/logout}" method="post">
-		<input class="btn btn-danger" type="submit" value="Sign Out" /></form>
+		<input class="btn btn-warning" type="submit" value="Sign Out" /></form>
 	</th>
 	
 	</tr>

@@ -110,7 +110,7 @@ public class Pokemon {
 	@Override
 	public String toString() {
 		return "Pokemon [id=" + id + ", pokemonName=" + pokemonName + ", hp=" + hp + ", setName=" + setName + ", type="
-				+ this.getType() + ", version=" + this.getVersion() + "]";
+				+ this.getType() + ", version=" + this.getVersion() + ", user=" + this.getUser() +"]";
 	}
 
 	
