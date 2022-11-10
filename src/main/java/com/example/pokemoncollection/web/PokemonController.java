@@ -119,7 +119,7 @@ public class PokemonController {
 
     // Edit card
     @GetMapping("/edit/{id}")
-    public String editPokemon(@PathVariable("id") Long PokemonId, Model model) {
+    public String editPokemon(@PathVariable("id") Long PokemonId, Long typeId, Long versionId, Model model) {
         model.addAttribute("pokemon", repository.findById(PokemonId));
         model.addAttribute("types", trepository.findAll());
         model.addAttribute("versions", vrepository.findAll());
