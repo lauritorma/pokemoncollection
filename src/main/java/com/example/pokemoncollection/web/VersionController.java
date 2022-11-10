@@ -15,6 +15,13 @@ public class VersionController {
 	private VersionRepository vrepository;
 	
 	
+    //Show list of all cards with same version
+  @GetMapping({"/cardsByVersion/{version}"})
+  public String cardListByVersion(@PathVariable("version") String version, Model model) {
+  	model.addAttribute("versions", vrepository.findByVersionName(version));
+  	return "pokemonlist";
+  }
+
 	//Delete version
 	
 	@GetMapping({"/deleteVersion/{versionId}"})

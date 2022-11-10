@@ -16,6 +16,16 @@ public class TypeController {
 	private TypeRepository trepository;
 	
 	
+	
+	
+   //Show list of all cards with same type
+	
+  @GetMapping({"/cardsByType/{typeName}"})
+  public String cardListByType(@PathVariable("typeName") String typeName, Model model) {
+  	model.addAttribute("types", trepository.findByTypeName(typeName));
+  	return "pokemonlist";
+  }
+  
 	//Delete type
 	
 	@GetMapping({"/deleteType/{typeid}"})
@@ -25,6 +35,7 @@ public class TypeController {
 	}
 	
 	//Delete all types
+	
 	@GetMapping({"/deleteAllTypes"})
     public String deleteAllTypes(Model model) {
     	trepository.deleteAll();
