@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.example.pokemoncollection.domain.Pokemon;
 //import com.example.pokemoncollection.domain.Pokemon;
 import com.example.pokemoncollection.domain.PokemonRepository;
 import com.example.pokemoncollection.domain.Type;
@@ -24,7 +25,6 @@ public class PokemoncollectionApplication {
 	@Bean
 	public CommandLineRunner demo(PokemonRepository repository,TypeRepository trepository,VersionRepository vrepository) {return (args) -> {
 		
-//		repository.save(new Pokemon("test","test","test"));
 		
 		log.info("Saving Pokemon types to in-memory");
 		trepository.save(new Type("Normal"));
@@ -51,11 +51,10 @@ public class PokemoncollectionApplication {
 		vrepository.save(new Version("Holo"));
 		vrepository.save(new Version("Reverse Holo"));
 		
-//		log.info("saving some demo pokemons to in-memory");
-//		repository.save(new Pokemon("Empoleon","130","Diamond & Pearl","Holo"));
-//		repository.save(new Pokemon("Metagross ex", "150", "EX Power keepers", "Standard"));
-//		repository.save(new Pokemon("Rhyperior", "140", "Diamond & Pearl", "Holo"));
-//		
+		log.info("saving some demo pokemons to in-memory for testing");
+		repository.save(new Pokemon("Empoleon",trepository.findByTypeName("Ice").get(0),"130","Diamond",vrepository.findByVersionName("Holo").get(0)));
+		repository.save(new Pokemon("Pikachu",trepository.findByTypeName("Electric").get(0),"100","Diamond & Pearl",vrepository.findByVersionName("Normal").get(0)));
+
 		
 	};
 	}
