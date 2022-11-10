@@ -107,7 +107,6 @@ public class Pokemon {
 				+ this.getType() + ", version=" + this.getVersion() + "]";
 	}
 
-
 	
 
 }

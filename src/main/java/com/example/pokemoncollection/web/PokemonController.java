@@ -67,8 +67,8 @@ public class PokemonController {
     }
     
     //Show list of all cards with same type
-    @GetMapping({"/cardsByType/{typeid}"})
-    public String cardListByType(@PathVariable("typeid") String type, Model model) {
+    @GetMapping({"/cardsByType/{type}"})
+    public String cardListByType(@PathVariable("type") String type, Model model) {
     	model.addAttribute("types", repository.findByType(type));
     	return "pokemonlist";
     }
@@ -119,7 +119,7 @@ public class PokemonController {
 
     // Edit card
     @GetMapping("/edit/{id}")
-    public String editPokemon(@PathVariable("id") Long PokemonId, Model model) {
+    public String editPokemon(@PathVariable("id") Long PokemonId, Long typeId, Long versionId, Model model) {
         model.addAttribute("pokemon", repository.findById(PokemonId));
         model.addAttribute("types", trepository.findAll());
         model.addAttribute("versions", vrepository.findAll());
