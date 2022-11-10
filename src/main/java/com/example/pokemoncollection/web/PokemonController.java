@@ -67,11 +67,11 @@ public class PokemonController {
     }
     
     //Show list of all cards with same type
-    @GetMapping({"/cardsByType/{type}"})
-    public String cardListByType(@PathVariable("type") String type, Model model) {
-    	model.addAttribute("types", repository.findByType(type));
-    	return "pokemonlist";
-    }
+//    @GetMapping({"/cardsByType/{type}"})
+//    public String cardListByType(@PathVariable("type") String type, Model model) {
+//    	model.addAttribute("types", repository.findByType(type));
+//    	return "pokemonlist";
+//    }
     
     //Show list of all cards with same hp
     @GetMapping({"/cardsByHp/{hp}"})
@@ -88,11 +88,11 @@ public class PokemonController {
     }
     
     //Show list of all cards with same version
-    @GetMapping({"/cardsByVersion/{version}"})
-    public String cardListByVersion(@PathVariable("version") String version, Model model) {
-    	model.addAttribute("versions", repository.findByVersion(version));
-    	return "pokemonlist";
-    }
+//    @GetMapping({"/cardsByVersion/{version}"})
+//    public String cardListByVersion(@PathVariable("version") String version, Model model) {
+//    	model.addAttribute("versions", repository.findByVersion(version));
+//    	return "pokemonlist";
+//    }
 
     // Add new card to list
 
