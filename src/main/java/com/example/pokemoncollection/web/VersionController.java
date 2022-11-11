@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.pokemoncollection.domain.Version;
 import com.example.pokemoncollection.domain.VersionRepository;
 
 @Controller
@@ -13,6 +14,16 @@ public class VersionController {
 
 	@Autowired
 	private VersionRepository vrepository;
+	
+	//Add versions to version repo
+	
+	@GetMapping({"/addVersions"})
+	public String addVersions() {
+		vrepository.save(new Version("Normal"));
+		vrepository.save(new Version("Holo"));
+		vrepository.save(new Version("Reverse Holo"));
+		return "redirect:/pokemoncollection";
+	}
 	
 	
     //Show list of all cards with same version

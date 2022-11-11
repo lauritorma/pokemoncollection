@@ -35,6 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/deleteAllTypes").hasAuthority("ADMIN")
 		.antMatchers("/deleteVersion/**").hasAuthority("ADMIN")
 		.antMatchers("/deleteAllVersions").hasAuthority("ADMIN")
+		.antMatchers("/addTypes").hasAuthority("ADMIN")
+		.antMatchers("/addVersions").hasAuthority("ADMIN")
 		.anyRequest().authenticated()
         .and()
       .formLogin()
