@@ -24,7 +24,7 @@
 			</tr>
 			<tr style="text-align: center;">
 				<th><label for="typelist">Type</label></th>
-				<td><select style="width: 200px; margin: auto;" id="typelist"
+				<td><select style="width: 200px; margin: auto;"
 					th:field="*{type}" class="form-control">
 						<option th:each="type: ${types}" th:value="${type.typeid}"
 							th:text="${type.typeName}"></option>
@@ -33,7 +33,7 @@
 			</tr>
 			<tr style="text-align: center;">
 				<th><label for="hp">HP</label></th>
-				<td><input type="text" th:field="*{hp}" /></td>
+				<td><input type="number" th:field="*{hp}" /></td>
 				<td style="font-size:80%; color:red;" th:if="${#fields.hasErrors('hp')}" th:errors="*{hp}"></td>
 			</tr>
 			<tr style="text-align: center;">
@@ -44,7 +44,7 @@
 			<tr style="text-align: center;">
 				<th><label for="versionlist">Version</label></th>
 				<td><select style="width: 200px; margin: auto;"
-					id="versionlist" th:field="*{version}" class="form-control">
+					 th:field="*{version}" class="form-control">
 						<option th:each="version: ${versions}"
 							th:value="${version.versionId}" th:text="${version.versionName}"></option>
 				</select></td>

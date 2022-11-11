@@ -1,18 +1,16 @@
 package com.example.pokemoncollection.domain;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -24,8 +22,12 @@ public class Pokemon {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotBlank(message = "Cannot be blank")
-	private String pokemonName, hp, setName;
+	@NotBlank(message = "Cannot be empty")
+	private String pokemonName, setName;
+	
+	@Digits(integer=3, fraction=0)
+	@Min(value = 1, message="Cannot be lower than 1")
+	private int hp;
 	
 	@ManyToOne
 	@JoinColumn(name = "typeid")
@@ -66,7 +68,7 @@ public class Pokemon {
 
 	public Pokemon() {}
 	
-	public Pokemon(String pokemonName, Type type, String hp, String setName, Version version) {
+	public Pokemon(String pokemonName, Type type, int hp, String setName, Version version) {
 		super();
 		this.pokemonName = pokemonName;
 		this.type = type;
@@ -90,14 +92,15 @@ public class Pokemon {
 	public void setPokemonName(String pokemonName) {
 		this.pokemonName = pokemonName;
 	}
+	
 
-	public String getHp() {
+	public int getHp() {
 		return hp;
 	}
-	public void setHp(String hp) {
+
+	public void setHp(int hp) {
 		this.hp = hp;
 	}
-	
 
 	public String getSetName() {
 		return setName;

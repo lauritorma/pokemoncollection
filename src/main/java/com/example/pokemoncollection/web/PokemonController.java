@@ -69,7 +69,7 @@ public class PokemonController {
     
     //Show list of all cards with same hp
     @GetMapping({"/cardsByHp/{hp}"})
-    public String cardListByHp(@PathVariable("hp") String hp, Model model) {
+    public String cardListByHp(@PathVariable("hp") int hp, Model model) {
     	model.addAttribute("pokemons", repository.findByHp(hp));
     	return "pokemonlist";
     }

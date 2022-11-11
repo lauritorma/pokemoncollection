@@ -30,7 +30,7 @@
 			</tr>  
 			<tr style="text-align: center;">
 				<th><label for="hp">HP</label></th>
-				<td><input type="text" th:field="*{hp}" /></td>
+				<td><input type="number" th:field="*{hp}" /></td>
 				<td style="font-size:80%; color:red;" th:if="${#fields.hasErrors('hp')}" th:errors="*{hp}"></td>
 			</tr>
 			<tr style="text-align: center;">

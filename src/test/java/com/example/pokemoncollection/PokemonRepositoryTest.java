@@ -36,7 +36,7 @@ public class PokemonRepositoryTest {
 	
 	@Test
 	public void createNewPokemon() {
-		Pokemon pokemon = new Pokemon("Charizard",trepository.findByTypeName("Fire").get(0),"100","Diamond", vrepository.findByVersionName("Holo").get(0));
+		Pokemon pokemon = new Pokemon("Charizard",trepository.findByTypeName("Fire").get(0),100,"Diamond", vrepository.findByVersionName("Holo").get(0));
 		repository.save(pokemon);
 		assertThat(pokemon.getId()).isNotNull();
 	}
