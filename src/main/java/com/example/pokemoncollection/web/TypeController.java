@@ -1,12 +1,19 @@
 package com.example.pokemoncollection.web;
 
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.pokemoncollection.domain.Pokemon;
 import com.example.pokemoncollection.domain.Type;
 import com.example.pokemoncollection.domain.TypeRepository;
 
@@ -15,7 +22,13 @@ public class TypeController {
 
 	@Autowired
 	private TypeRepository trepository;
+	//View all types
 	
+	@GetMapping({"/typeList"})
+	public String typeList(Model model) {
+		model.addAttribute("types", trepository.findAll());
+		return "pokemonlist";
+	}
 	//Add types to type repo
   @GetMapping({"/addTypes"})
   public String addTypes() {
@@ -38,6 +51,18 @@ public class TypeController {
 	  trepository.save(new Type("Steel"));
       trepository.save(new Type("Fairy"));
 	  return "redirect:/pokemoncollection";
+  }
+  
+//REST service to get all types
+  @RequestMapping(value = "/types", method = RequestMethod.GET)
+  public @ResponseBody List<Type> typeListRest() {
+      return (List<Type>) trepository.findAll();
+  }
+
+  // REST service to get pokemon by id
+  @RequestMapping(value = "type/{typeid}", method = RequestMethod.GET)
+  public @ResponseBody Optional<Type> findTypeRest(@PathVariable("typeid") Long typeId) {
+      return trepository.findById(typeId);
   }
 	
    //Show list of all cards with same type
