@@ -24,7 +24,7 @@ public class Pokemon {
 	private Long id;
 	
 	@NotBlank(message = "Cannot be empty")
-	@Pattern(regexp="([a-ö])", message = "Cannot contain numbers")
+	@Pattern(regexp="(^[a-öA-ö ]+$)", message = "Cannot contain numbers")
 	private String pokemonName, setName;
 	
 	@Digits(integer=3, fraction=0)
