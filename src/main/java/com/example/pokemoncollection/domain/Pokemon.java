@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 
 
@@ -23,6 +24,7 @@ public class Pokemon {
 	private Long id;
 	
 	@NotBlank(message = "Cannot be empty")
+	@Pattern(regexp="([a-ö])", message = "Cannot contain numbers")
 	private String pokemonName, setName;
 	
 	@Digits(integer=3, fraction=0)
